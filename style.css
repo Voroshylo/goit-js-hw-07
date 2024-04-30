@@ -59,20 +59,42 @@ font-weight: 600;
 line-height: 32px; /* 133.333% */
 letter-spacing: 0.96px;
 margin: 0;
-
 }
+
+/* task-2 */
 
 ul.gallery {
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
+  gap: 24px;
   justify-content: center;
+  width: 1440px;
 }
 
 ul.gallery li {
   list-style: none;
+
+
 }
 
 ul.gallery img {
   border-radius: 5px;
+}
+
+/* task-3 */
+#name-input {
+width: 360px;
+height: 40px;
+flex-shrink: 0;
+border-radius: 4px;
+border: 1px solid #808080;
+}
+::placeholder{
+  color: #2E2F42;
+font-family: Montserrat;
+font-size: 16px;
+font-style: normal;
+font-weight: 400;
+line-height: 24px; /* 150% */
+letter-spacing: 0.64px;
 }
