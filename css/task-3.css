@@ -1,0 +1,30 @@
+#name-input {
+  width: 360px;
+  height: 40px;
+  border: 1px solid #808080;
+  border-radius: 4px;
+  padding-left: 16px;
+  transition: box-shadow 200ms ease-in-out;
+}
+
+#name-input::placeholder {
+  color: #2e2f42;
+  font-family: Montserrat;
+  line-height: 1.5;
+  letter-spacing: 0.04em;
+}
+
+#name-input:hover,
+#name-input:focus {
+  border: 1px black solid;
+  outline: none;
+}
+
+h1 {
+  color: #2e2f42;
+  font-size: 24px;
+  font-family: Montserrat;
+  font-weight: 600;
+  line-height: 1.3;
+  letter-spacing: 0.04em;
+}
