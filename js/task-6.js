@@ -3,38 +3,37 @@ function getRandomHexColor() {
     .toString(16)
     .padStart(6, 0)}`;
 }
-function createBoxes(amount) {
-  const boxesContainer = document.getElementById('boxes');
-  boxesContainer.innerHTML = '';
-  let size = 30;
-  for (let i = 0; i < amount; i++) {
-    const box = document.createElement('div');
-    box.style.width = `${size}px`;
-    box.style.height = `${size}px`;
-    box.style.backgroundColor = getRandomHexColor();
-    box.style.margin = '5px';
-    boxesContainer.appendChild(box);
-    size += 10;
+
+const btnCreate = document.querySelector("button[data-create]");
+const btnDestroy = document.querySelector("button[data-destroy]");
+const input = document.querySelector("input[type]");
+const boxes = document.querySelector("#boxes");
+
+btnCreate.addEventListener("click", () => {
+  const amount = +input.value;
+  if (amount <= 100 && amount >= 1) {
+    createBoxes(amount);
+    input.value = "";
+  } else {
+    alert("Between 1 and 100.");
   }
+});
+
+function createBoxes(amount) {
+  boxes.innerHTML = "";
+  const arrBoxes = [];
+  let boxSize = 30;
+  for (let i = 0; i < amount; i++) {
+    arrBoxes.push(
+      `<div style='background-color: ${getRandomHexColor()}; width:${boxSize}px; height:${boxSize}px;'></div>`
+    );
+    boxSize += 10;
+  }
+  boxes.innerHTML = arrBoxes.join("");
 }
+
+btnDestroy.addEventListener("click", destroyBoxes);
 
 function destroyBoxes() {
-  const boxesContainer = document.getElementById('boxes');
-  boxesContainer.innerHTML = '';
+  boxes.innerHTML = "";
 }
-document.addEventListener('DOMContentLoaded', function() {
-  const createButton = document.querySelector('button[data-create]');
-  const destroyButton = document.querySelector('button[data-destroy]');
-  const input = document.querySelector('#controls input');
-  createButton.addEventListener('click', function() {
-    const amount = parseInt(input.value, 10);
-
-    if (!isNaN(amount) && amount >= 1 && amount <= 100) {
-      createBoxes(amount);
-      input.value = '';
-    }
-  });
-  destroyButton.addEventListener('click', function() {
-    destroyBoxes();
-  });
-});
